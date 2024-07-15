@@ -1,0 +1,82 @@
+
+
+
+#portfolio{
+  width:80%;
+  margin: auto;
+  
+}
+.project-title {
+    margin-bottom: .75rem;
+    font-size: var(--font-text);
+    font-weight: 500
+}
+
+.centered-image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: 40rem;
+    margin: 0 auto;
+    border-radius: 5%;
+  }
+
+.project-description {
+    margin: 0 auto;
+    margin-top: .25rem;
+    font-weight: 400
+}
+
+.project-image-container {
+    width: 100%;
+    margin: 0 auto;
+    /*background-color: rgba(0,0,255,0.3); */
+
+}
+
+.project-image {
+    display: block;
+    max-height: 20rem ;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+    transition: all .2s ease-in-out
+
+}
+
+#profile .subtitle{
+  text-decoration: none;
+  font-size: 1.25rem;
+  color:var(--color-text-important);
+  margin-top: 10px;
+}
+
+#profile .picture {
+    width: 14rem;
+    height: 14rem;
+    object-fit:cover;
+    border: 5px solid #fff;
+    background-size:cover;
+    background-position:center;
+    border-radius: 50%;
+    box-shadow: 0 3.2px 7.2px rgba(0,0,0,.13),0 0 3.8px rgba(0,0,0,.11)
+}
+.title {
+    font-size: var(--font-title);
+    color: var(--color-text-important);
+    font-weight: 700;
+    margin-bottom:0;
+}
+
+#summary {
+    font-size: var(--font-text);
+    max-width: 25rem;
+    /* background-color:rgba(0,255,0,0.3); */
+    margin:auto;
+    margin-top:1.25rem;
+
+    
+}
+
