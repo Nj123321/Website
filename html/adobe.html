@@ -12,6 +12,36 @@
 	<link href="../css/adobe.css" rel="stylesheet">
 </head>
 <body>
-    
+    <h1 style="text-align:center; color: var(--color-text); font-weight:bold; letter-spacing: 1px;">Announcements</h1>
+	<section id="description">
+		<p> At Adobe I worked with the <a href="https://www.behance.net/">BeHance</a> team. I worked with git and visual studio code.<br>
+            I mainly worked on the backend portion of their announcement feature, adding new features for announcement creation.
+        </p>
+	</section>
+
+    <section id="description"> 
+        <h1>Custom Announcements</h1>
+        <p id="commands"> Previously, for each announcement created on Be.net a blog post had to be created to since the announcements sourced their content(Icon, Title, ...) from blog posts which the developer linked.(<b>Click on image below to show database schematic.</b>). So I added custom fields into the database for developers to directly input the data and integrated it into the backend so that 
+			a blog post was optional, and instead could be replaced by filling in custom fields. This dramatically reduced the overhead for announcemenet creation.
+        </p>
+        <img class="centered-image" id="announce" src="../images/WorkExperience/Adobe/announcement.png" onclick="changeAnn()">
+    </section>
+
+    <section id="description">
+        <h1>Targeted Announcements</h1>
+        <p> The second part of my internship required me to create target conditions for announcements, which decide when to show what announcements and to which users. This allowed for the users
+			of BeHance to recieve more relevant announcements and to minimize user fatigue from too much notifications. To accomplish this, I designed the database relation below to implement the targeting feature. Each announcement could have multiple
+			targets([<font color="green">Condition</font>] [<font color="blue">operation</font>] [<font color="red">value</font>], 
+			ex: [<font color="green">User.posts</font>] [<font color="blue">>=</font>] [<font color="red">3</font>]) based on who the developers want to show it to, and also, to prevent data duplication in the database, I created a seperate Condition object for which each target condition
+			references rather than copies, saving data. Below is a schematic of my design.
+
+        </p>
+        <img class="curr_score_graph" src="../images/WorkExperience/Adobe/targetDesign.png" alt>
+		<p> My feature was first used by the behance team to announce the upcoming Adobe MAX conference to all users located in the United States. I'm happy to report there were no bugs! Below is what it looks like on the BeHance website.
+        </p>
+		<img class="centered-image" src="../images/WorkExperience/Adobe/adobemax.png" alt>
+    </section>
+
+	<script src="../js/adobe.js"></script>
 </body>
 </html>
