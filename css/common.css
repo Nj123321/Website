@@ -65,7 +65,7 @@ h5 {
 
 .column {
   flex: 50%;
-  height: 28rem;
+  height: auto;
   margin:1rem;
   /*background-color:rgba(255,0,0, 0.3);*/
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Prediction Model Project</title>
+	<meta name="author" content="Nathan Jin">
+	<meta name="description" content="Housing Prediction Model">
+
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/housing.css" rel="stylesheet">
+</head>
+<body>
+    <h1 style="text-align:center; color: var(--color-text); font-weight:bold; letter-spacing: 1px;">ImageBot</h1>
+	<section id="description">
+		<p> Creating a pipeline and model for a housing prices with a dataset of Cook County, Illinois.<br>
+            The dataset consists of 500,000+ observations and 62 features, 204792 which are used for the training set.
+        </p>
+	</section>
+
+    <section id="description"> 
+        <h1>The Data  Pipleline</h1>
+        <p id="commands">First I cleaned the data, by removing invalid data points by flitering out outliers and taking the lograthim of the sale price variable.<br>
+            As part of the pipeline, I then added several new features: the log of each houses sale price, log of building square feet, the total number of bedrooms in each houses which I extracted from the listing description using regex, and 
+        </p>
+        <figure class="image-container" >
+            <img class="curr_score_graph " src="../images/Projects/housing/priceafter.png" alt>
+        </figure>
+        <h1>Pipeline & Model</h1>
+    </section>
+    <figure class="image-container">
+        <img class="curr_score_graph" src="../images/Projects/housing/materialPlot.png" alt="err" usemap="#materialMap" id="materialPlot">
+    </figure>
+
+    <map name="materialMap">
+        <area target="" class="asphalt" title="asphalt" coords="183,90,521,796" shape="rect">
+        <area target="" class="gravel" title="gravel" href="" coords="532,95,846,791" shape="rect">
+        <area target="" class="other" title="other" href="" coords="581,35,809,500" shape="rect">
+        <area target="" class="tile" title="tile" href="" coords="828,33,1033,499" shape="rect">
+        <area target="" class="shake" title="shake" href="" coords="1050,31,1268,498" shape="rect">
+        <area target="" class="slate" title="slate" href="" coords="1281,33,1503,498" shape="rect">
+    </map>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/housing.js"></script>
+	
+</body>
+</html>

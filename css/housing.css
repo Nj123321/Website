@@ -1,0 +1,135 @@
+
+html{
+    --font-title: 2rem;
+      --font-subtitle: 1.35rem;
+      --font-text: 1.25rem;
+      --color-background: #fcfcfc;
+      --color-background-code: Black;
+      --color-background-inline-code: Black;
+      --color-text-important: Black;
+      --color-text: black;
+      --color-text-extra: Black;
+      --color-link: #005FBF
+  }
+  
+  body, html{
+       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: "Avenir Next", Inter;
+      background-color: var(--color-background);
+      padding: 0;
+      margin: 0;
+      color: var(--color-text)
+  
+  }
+#description{
+    width: 80%;
+    text-align: center;
+    margin: 0 auto; /* Centers the container horizontally */
+}
+.sharpe_and_ret {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%; /* Ensures the image doesn't exceed its original size */
+    max-height: 20rem; /* Sets a maximum height for the image */
+    margin: 0 auto;
+    border-radius: 0%;
+}
+.centered-image {
+    display: block;
+    max-width: 100%;
+    max-height: auto;
+    width: 30rem;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5%;
+}
+.verticle-image {
+    display: block;
+    max-width: 80%;
+    max-height: auto;
+    width: 20rem;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5%;
+}
+
+.curr_score_graph {
+    display: block;
+    max-width: 100%;
+    width: 75rem;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5%;
+}
+.var_3_image {
+
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 35rem;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5%;
+}
+
+
+.highlight-yellow {
+    background-color: rgba(255,255, 0, 0.8); /* Replace 'yellow' with the color you want for the highlight */
+    /* Optionally, you can add other styles to customize the highlight */
+    padding: 2px; /* Adds some padding around the highlighted word */
+    font-weight:bold;
+    color: black;
+
+}
+.highlight-threshold {
+    background-color: rgba(255,255, 0, 0.8); /* Replace 'yellow' with the color you want for the highlight */
+    /* Optionally, you can add other styles to customize the highlight */
+    padding: 2px; /* Adds some padding around the highlighted word */
+    font-weight:bold;
+    color: red;
+
+}
+
+.highlight-sharpe {
+    background-color: rgba(14,12, 92, 0.8); /* Replace 'yellow' with the color you want for the highlight */
+    /* Optionally, you can add other styles to customize the highlight */
+    padding: 2px; /* Adds some padding around the highlighted word */
+    font-weight:bold;
+    color: white;
+
+}
+
+.highlight-cyan {
+    background-color: rgba(0, 255, 255, 0.8); /* Replace 'yellow' with the color you want for the highlight */
+    /* Optionally, you can add other styles to customize the highlight */
+    padding: 2px; /* Adds some padding around the highlighted word */
+    font-weight:bold;
+    color: black;
+
+}
+
+
+.highlight-magenta {
+    background-color: rgba(255, 0, 255, 0.8); /* Replace 'yellow' with the color you want for the highlight */
+    /* Optionally, you can add other styles to customize the highlight */
+    padding: 2px; /* Adds some padding around the highlighted word */
+    font-weight:bold;
+    color: black;
+
+}
+
+.highlight-green {
+    background-color: 	rgb(50, 205, 50, 0.8)
+    ; /* Replace 'yellow' with the color you want for the highlight */
+    /* Optionally, you can add other styles to customize the highlight */
+    padding: 2px; /* Adds some padding around the highlighted word */
+    font-weight:bold;
+    color: black;
+
+
+}
+
+
+  
