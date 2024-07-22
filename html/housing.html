@@ -12,36 +12,51 @@
 	<link href="../css/housing.css" rel="stylesheet">
 </head>
 <body>
-    <h1 style="text-align:center; color: var(--color-text); font-weight:bold; letter-spacing: 1px;">ImageBot</h1>
+    <h1 style="text-align:center; color: var(--color-text); font-weight:bold; letter-spacing: 1px;">House Price Predictor</h1>
 	<section id="description">
-		<p> Creating a pipeline and model for a housing prices with a dataset of Cook County, Illinois.<br>
-            The dataset consists of 500,000+ observations and 62 features, 204792 which are used for the training set.
+		<p> I created a pipeline and model for a housing prices with a dataset of Cook County, Illinois.<br>
+            The <a href="https://datacatalog.cookcountyil.gov/Property-Taxation/Assessor-Archived-05-11-2022-Residential-Sales-Dat/5pge-nu6u/about_data">dataset</a> consists of 500,000+ observations and 62 features.
         </p>
 	</section>
 
     <section id="description"> 
-        <h1>The Data  Pipleline</h1>
-        <p id="commands">First I cleaned the data, by removing invalid data points by flitering out outliers and taking the lograthim of the sale price variable.<br>
-            As part of the pipeline, I then added several new features: the log of each houses sale price, log of building square feet, the total number of bedrooms in each houses which I extracted from the listing description using regex, and 
+        <h1>The Data Pipleline</h1>
+        <p id="commands"> For each feature below, I cleaned the data by removing invalid data points as well as not including any outliers in the analysis and performing any transformation operations if needed. I first worked on the response variable, Sales Price. <u>Click on image below to see the cleaned Sales Price distribution with a log transformation.</u> 
         </p>
-        <figure class="image-container" >
-            <img class="curr_score_graph " src="../images/Projects/housing/priceafter.png" alt>
-        </figure>
-        <h1>Pipeline & Model</h1>
-    </section>
-    <figure class="image-container">
+        <img class="curr_score_graph" id="priceGraph" src="../images/Projects/housing/pricebefore.png" onclick="changePrice()">
+        <p> To include include the roof material into our predictor variables, I one hot encoded each of the different materials below, turning each into seperate indicator variables I added to each column.
+            <u>Click below on each box plot to see the distribution of their respective indicator variables.</u>
+        </p>
         <img class="curr_score_graph" src="../images/Projects/housing/materialPlot.png" alt="err" usemap="#materialMap" id="materialPlot">
-    </figure>
+        <p> From the description of each housing listing, I also used regex to extract the number of bedrooms in each house, below is a violin plot showing the relationship between number of bedrooms and sale price
+        </p>
+        <img class="curr_score_graph " src="../images/Projects/housing/bedroomsPlot.png" alt>
+        <p> Also, I grouped houses that shared neighborhoods and found the top 3 most expensive neighborhoods using pandas, and created an indicator variable for it called "in_expensive_neighborhood".
+        </p>
+        <img class="curr_score_graph " src="../images/Projects/housing/expensivePlot.png" alt>
+        <p> I then also took a look at the correlation between the area of each house and the sale price through a joint plot.
+        </p>
+        <img class="centered-image" src="../images/Projects/housing/areaPlot.png" alt>
+    </section>
 
-    <map name="materialMap">
-        <area target="" class="asphalt" title="asphalt" coords="183,90,521,796" shape="rect">
-        <area target="" class="gravel" title="gravel" href="" coords="532,95,846,791" shape="rect">
-        <area target="" class="other" title="other" href="" coords="581,35,809,500" shape="rect">
-        <area target="" class="tile" title="tile" href="" coords="828,33,1033,499" shape="rect">
-        <area target="" class="shake" title="shake" href="" coords="1050,31,1268,498" shape="rect">
-        <area target="" class="slate" title="slate" href="" coords="1281,33,1503,498" shape="rect">
+    <section id="description">
+        <h1>The Model</h1>
+        <p> After running the data through the pipline functions above, I then split the data into training and testing data, 204792 used for the training set and 68264 used for the test set. <br>
+            I constructed a linear classifier with scikit learn using existing features and the newly generated ones, with a Residual plot below.
+        </p>
+        <img class="centered-image" src="../images/Projects/housing/thumbnail.png" alt>
+    </section>
+
+    <map class="image-container" name="materialMap">
+        <area target="" class="asphalt" title="asphalt" coords="172,78,521,799" shape="rect">
+        <area target="" class="gravel" title="gravel" href="" coords="527,76,869,795" shape="rect">
+        <area target="" class="other" title="other" href="" coords="876,78,1237,801" shape="rect">
+        <area target="" class="tile" title="tile" href="" coords="1242,81,1584,803" shape="rect">
+        <area target="" class="shake" title="shake" href="" coords="1588,76,1939,797" shape="rect">
+        <area target="" class="slate" title="slate" href="" coords="1945,78,2296,797,2380,788" shape="rect">
     </map>
-    
+
+    <script src="https://raw.githubusercontent.com/davidjbradshaw/imagemap-resizer/master/js/imageMapResizer.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="../js/housing.js"></script>
 	
