@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tomb Dasher</title>
+	<meta name="author" content="Nathan Jin">
+	<meta name="description" content="Adobe Internship">
+
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/adobe.css" rel="stylesheet">
 </head>
 <body>
-    
+    <h1 style="text-align:center; color: var(--color-text); font-weight:bold; letter-spacing: 1px;">Tomb Dasher</h1>
+	<section id="description">
+		<p> This is a 2D grid game created with <a href="https://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html">StdDraw</a> library.<br>
+            It is a maze game where you collect all the stars to win before the enemy catches you, with limited vision of course.
+        </p>
+	</section>
+
+    <section id="description"> 
+        <h1>Wolrd Generation</h1>
+        <p id="commands"> To generate the psuedo random maze with rooms and hallways, I recursively paritioned the space into a BSP tree, randomly created rooms on each partition(leaf), and connected the rooms together with hallways going up the tree - forming a maze where
+            each room can be reached.
+        </p>
+        <img class="centered-image" id="announce" src="../images/Projects/tombDasher/woldGen.png">
+    </section>
+
+    <section id="description">
+        <h1>Gameplay</h1>
+		<p> At the start of the game you have three lives, and lose one for each time an enemy encounters you. There are two stars randomly placed in the world, collect both to win. The game also supports save states, which are implemented with serilization and can be loaded in to resume gameplay.
+        </p>
+		<img class="centered-image" src="../images/Projects/tombDasher/game.png" alt>
+        <p> The enemies chase you with a path determined by dikstra's algorithim, which can be toggeled on or off to show the enemies path. Below, it is toggeled on.
+        </p>
+		<img class="centered-image" src="../images/Projects/tombDasher/dikstra.png" alt>
+        <p> Since there is limited vision, I added a merchant, who you can buy up to three "torches" from, you can buy up to three torches which show on the upper left hand cornor.
+        </p>
+		<img class="centered-image" src="../images/Projects/tombDasher/buyTorch.png" alt>
+        <p> When a torch is bought and held, it expands your radius view by 2x
+        </p>
+		<img class="centered-image" src="../images/Projects/tombDasher/torch1.png" alt>
+        <p> You can increase your vision arbitrarily large, doubling the radius each time. However, the larger you expand your viewpoint, the faster the torch burn out, in which case
+            your view range reverts back to the orginal size and you lose the torch.
+        </p>
+		<img class="centered-image" src="../images/Projects/tombDasher/torch2.png" alt>
+    </section>
 </body>
 </html>
