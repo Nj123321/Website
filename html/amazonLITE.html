@@ -13,11 +13,36 @@
 	<link href="../css/adobe.css" rel="stylesheet">
 </head>
 <body>
+    <section id="description"> 
+            <p id="commands"> A microservice architecture implementation of an ecommerce website  - <b>drag image below to view full diagram</b>
+            </p>
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <div id="img"></div>
     <script src="../js/tester.js"></script>
 
-    <h1 style="text-align:center; color: var(--color-text); font-weight:bold; letter-spacing: 1px;">Flow Diagram Above</h1>
-	
+    <section id="description"> 
+        <h1><u>Specs</u></h1>
+        <h2>Internet(External) Access</h2>
+        <p> External applications can access the application using a RESTful API, which routing is determined by the API Gateway
+        </p>
+        <h2>Security</h2>
+        <p> The API Gateway is secured with oauth2.0 where jwt token generation is handled by Keycloak using private credentials.
+            The discovery server also uses in-memory security where passwords are stored as byte-encodings to authenticate users who view the browser interface.
+        </p>
+        <h2>Microservice Communication</h2>
+        <p> Each microservice and the API gateway is connected to a discovery service through http using spring Spring Web. Load balancing between duplicate microservices is done with round robin. Circuit breakers were also
+            implemented between microservices. Kraft (Kafka without zookeeper) was also used to support 
+            email notifications whenever an order was placed.
+        </p>
+        <h2>Data Storage</h2>
+        <p> Each microservice connected to locally hosted databases using spring data jpa, for mysql and mongodb databases.
+        </p>
+
+        <h2>Maintence</h2>
+        <p> Implemented integration testing using Docker Images, logging, and distributed tracing for easier debugging.
+        </p>
+
+    </section>
 </body>
 </html>
