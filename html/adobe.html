@@ -30,7 +30,7 @@
     <section id="description">
         <h1>Targeted Announcements</h1>
         <p> The second part of my internship required me to create target conditions for announcements, which decide when to show what announcements and to which users. This allowed for the users
-			of BeHance to recieve more relevant announcements and to minimize user fatigue from too much notifications. I designed the database relation below to implement the targeting feature. Each announcement could have multiple
+			of BeHance to recieve more relevant announcements and to minimize user fatigue from too much notifications. I designed the database relation   to implement the targeting feature. Each announcement could have multiple
 			targets([<font color="green">Condition</font>] [<font color="blue">operation</font>] [<font color="red">value</font>], 
 			ex: [<font color="green">User.posts</font>] [<font color="blue">>=</font>] [<font color="red">3</font>]) based on who the developers want to show it to, and also, to prevent data duplication in the database, I created a seperate Condition object for which each target condition
 			references rather than copies, saving data. Below is a schematic of my design.
