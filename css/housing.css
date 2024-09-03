@@ -45,6 +45,15 @@ html{
     margin: 0 auto;
     border-radius: 5%;
 }
+.new-centered-image{
+    display: block;
+    max-width: 100%;
+    max-height: auto;
+    width: 30rem;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5%;
+}
 .verticle-image {
     display: block;
     max-width: 80%;

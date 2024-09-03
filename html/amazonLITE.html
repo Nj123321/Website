@@ -13,8 +13,8 @@
 	<link href="../css/adobe.css" rel="stylesheet">
 </head>
 <body>
-    <section id="description"> 
-            <p id="commands"> A microservice architecture implementation of an ecommerce website  - <b>drag image below to view full diagram</b>
+    <section id="description">
+            <p id="commands"> A Spring Boot micro-service based backend implementation of a course scheduling site - <b>drag image below to view full diagram</b>
             </p>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -22,9 +22,33 @@
     <script src="../js/tester.js"></script>
 
     <section id="description"> 
-        <h1><u>Specs</u></h1>
+        <h1><u>Motivation</u></h1>
+        <p> Often times, it is dauting for students to try and plan their courses out when first entering college. Students have to decide what courses to take, when to take it,
+            and to ensure that all requirements are filled so they can safely enroll in the class. To simply this process, I created an backtracking algorithim to automate this
+            process - of finding 
+        </p>
+        <h1><u>The Future</u></h1>
+        <p> Ideally my solution will be implemented into <a href="https://berkeleytime.com/about">BerkeleyTime,</a> a course scheduling website for current Berkeley students. I am currently in discussion about implementing the
+            scheduling feature to hopefully help thousands of students plan better schedules and not miss out on important classes in learning as there currently isn't a 
+            scheudling system that allows for planning accross multiple semesters currently 
+        </p>
+        <h1><u>A Solution</u></h1>
+        <img class="new-centered-image" id="announce" src="../images/Projects/amazonLITE/DagGraph.png">
+        <p> The algorithim I came up to solve the issue of finding the best course schedule given constraints, involves in backtracking all possible combinations of "prerequisite intervals".
+            The prerequiste intervals are created by flattening out DFS traversals in the prerequiste node graph to get a sequence of courses that are organized by older courses first. <b>(Picture Above)</b>
+            To find all possible schedules, I iterated through each of the intervals independently, and in seperate layers, to construct the backtracking tree and allow me to pick
+            the most optimal schedules <b>(second image below)</b> .
+        </p>
+        <img class="curr_score_graph" src="../images/Projects/amazonLITE/BacktrackingGraph.png" alt>
+
+        <h1><u>Technologies🤓</u></h1>
+        <h1><u>Data Storage</u></h1>
+        <p> Currently I am accessing Neo4J with Spring Data JPA for this project to store the course data along with each course's relation of prerequisites in a graph database, however there seems to
+            be a lack of support, so perhaps a migration to AWS DynamoDB is in sight.
+        </p>
         <h2>Internet(External) Access</h2>
-        <p> External applications can access the application using a RESTful API, which routing is determined by the API Gateway
+        <p> External applications can access the application using a RESTful API, which routing is determined by the API Gateway. The application is also containerized using 
+            Docker.
         </p>
         <h2>Security</h2>
         <p> The API Gateway is secured with oauth2.0 where jwt token generation is handled by Keycloak using private credentials.
@@ -33,12 +57,8 @@
         <h2>Microservice Communication</h2>
         <p> Each microservice and the API gateway is connected to a discovery service through http using spring Spring Web. Load balancing between duplicate microservices is done with round robin. Circuit breakers were also
             implemented between microservices. Kraft (Kafka without zookeeper) was also used to support 
-            email notifications whenever an order was placed.
+            email notifications.
         </p>
-        <h2>Data Storage</h2>
-        <p> Each microservice connected to locally hosted databases using spring data jpa, for mysql and mongodb databases.
-        </p>
-
         <h2>Maintence</h2>
         <p> Implemented integration testing using Docker Images, logging, and distributed tracing for easier debugging. Dockerized service using muultiple layers
         </p>
