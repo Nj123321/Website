@@ -31,41 +31,35 @@
         </p>
 
         <h1><u>Motivation</u></h1>
-        <p> Often times, as students, it is daunting to decide what classes to schedule. Students have to decide what courses to take, when to take it,
-            and to ensure that all requirements are filled so they can safely enroll in the class. To simply this process, I created an backtracking algorithim to automate the
-            process of evenly distributing your workload, making sure prerequistes are taken, and making sure courses are taken by certain deadlines.
+        <p> As a former student, I realize how daunting it is to decide what classes to schedule. We have to decide what courses to take, when to take it,
+            and to ensure that all prerequisites are taken. And if change to the schedule is made, commonly the entire schedule has to be restructured. To simply this process, I created a scheduling backend service with a backtracking algorithim to help automate
+            this porcess of course scheduling so that optimal schedules can be easily found and fit for 
+            <br><u>Features:</u>
+            <br><b>-x-</b> Students can create multiple draft schedules from course catalog
+            <br><b>-x-</b> Students can optimize schedules to spread out difficulty, ensure prerequisites are taken, and that the prerequsites are taken relatively sequentially with a click of a button
+            <br><b>-x-</b> Students can specify a course has to be taken at semester _, which the optimizer will respect
+            <br><u>Features to implement:</u>
+            <br><b>-x-</b> Backend service to schedule classes in schedule when draft schedule is exported
+            <br><b>-x-</b> Students can impose a course has to be taken by semester _.
         </p>
         
-        
-        <h1><u>My Solution</u></h1>
+        <h1><u>A Solution(In-Depth Algorithim)</u></h1>
         <img class="new-centered-image" id="announce" src="../images/Projects/amazonLITE/DagGraph.png">
-        <p> The algorithim I came up to solve the issue of finding the best course schedule given constraints, involves in backtracking all possible combinations of "prerequisite intervals".
-            The prerequiste intervals are created by flattening out DFS traversals in the prerequiste node graph to get a sequence of courses that are organized by older courses first. <b>(Picture Above)</b>
-            To find all possible schedules, I iterated through each of the intervals independently, and in seperate layers, to construct the backtracking tree and allow me to pick
-            the most optimal schedules <b>(second image below)</b>.
+        <p> My algorithim to schedule courses effeciently involved backtracking "PreRequiste Intervals" for each course the user wanted to take - which constitutes a list
+            of required prerequisite courses that had to be taken in a certain relative order. To effeciently extract these intervals, I stored prerequisites in a graph database
+            and preformed an in-order DFS to linearize the DAG and get a pointer to each prerequisite <b>(Picture Above)</b>
+            To optimize schedules, "PreRequiste Intervals" are fetched from the CourseCatalog(database-service) endpoint for each course in the students schedule
+            the intervals are then backtracked based on how much semesters the students have left in Berkeley through a tree diagram like the <b>(Image Below)</b>.
         </p>
         <img class="curr_score_graph" src="../images/Projects/amazonLITE/BacktrackingGraph.png" alt>
 
         <h1><u>Keywords/Technologies🤓</u></h1>
-        <h1><u>Data Storage</u></h1>
-        <p> Currently I am accessing Neo4J with Spring Data JPA for this project to store the course data along with each course's relation of prerequisites in a graph database, however there seems to
-            be a lack of support, so perhaps a migration to AWS DynamoDB is in sight.
+        <p><u>Data Storage:</u> Course data stored in neo4j. And schedules/user data in MySQL. Data acess through ORM and Spring Data JPA
         </p>
-        <h2>Internet(External) Access</h2>
-        <p> External applications can access the application using a RESTful API, which routing is determined by the API Gateway. The application is also containerized using 
-            Docker.
-        </p>
-        <h2>Security</h2>
-        <p> The API Gateway is secured with oauth2.0 where jwt token generation is handled by Keycloak using private credentials.
-            The discovery server also uses in-memory security where passwords are stored as byte-encodings to authenticate users who view the browser interface.
-        </p>
-        <h2>Microservice Communication</h2>
-        <p> Each microservice and the API gateway is connected to a discovery service through http using spring Spring Web. Load balancing between duplicate microservices is done with round robin. Circuit breakers were also
-            implemented between microservices. Kraft (Kafka without zookeeper) was also used to support 
-            email notifications.
-        </p>
-        <h2>Maintence</h2>
-        <p> Implemented integration testing using Docker Images, logging, and distributed tracing for easier debugging. Dockerized service using muultiple layers
+        <p> <u>Distributed Systems:</u>Implemented Microservices with RESTful APIs with different endpoints with Spring Boot. API Gateway, 
+            Service Discovery, Load Balancer with Spring Cloud. Security configs with Spring Security, Identity Managaement/Authorization with KeyCloak.
+            Microservice connection through Spring Web. Kafka for async communcation(to be implemented). Logging with SLF4J. Testing with JUnit5. Containerization
+            with Docker.
         </p>
 
     </section>
